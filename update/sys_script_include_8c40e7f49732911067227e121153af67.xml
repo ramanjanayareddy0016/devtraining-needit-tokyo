@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.NeedItUtil</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>NeedItUtil</name>
+        <script><![CDATA[var NeedItUtil = Class.create();
+NeedItUtil.prototype = {
+    initialize: function() {
+    },
+	getName: function(firstName, lastName,state){
+		if(state == 'TN'){
+			return firstName + " " + lastName;
+		}else{
+			return lastName + " " + firstName;
+		}
+	},
+	isDatePast:function(dateStr){
+		var rightNow = new GlideDateTime();
+		var inputDate = new GlideDateTime(dateStr);
+		if (inputDate.before(rightNow)){
+			return true;
+		}
+		return false;
+	},
+	isDateToday:function(dateStr){
+		var rightNow = new GlideDateTime().getLocalDate();
+		var inputDate = new GlideDateTime(dateStr).getLocalDate();
+		
+		if (inputDate.compareTo(rightNow) == 0){
+			return true;
+		}
+		return false;
+	},
+    type: 'NeedItUtil'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-10-25 09:02:13</sys_created_on>
+        <sys_id>8c40e7f49732911067227e121153af67</sys_id>
+        <sys_name>NeedItUtil</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_8c40e7f49732911067227e121153af67</sys_update_name>
+    </sys_script_include>
+</record_update>
